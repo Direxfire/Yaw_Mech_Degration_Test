@@ -24,7 +24,7 @@
 <H2>Resources</H2>
 <H4>Code</H4>
 <p>This repository contains the code for the embedded MSP4330FR2310 running the testing system.</p>
-<p>The code is written in embedded C using the Texas Instruments Code Composer Studio IDE. This is the softwaree developed specifically for programming these microcontrollers. When editing the code base, notations must be added for date modiftied and what was modified in the changelog.txt file. For proper functionality, the Code Composer Studio Optomizer must be disabled otherwise the system will not function.</p>
+<p>The code is written in embedded C using the Texas Instruments Code Composer Studio IDE. This is the softwaree developed specifically for programming these microcontrollers. When editing the code base, notations must be added for date modiftied and what was modified in the changelog.md file. For proper functionality, the Code Composer Studio Optomizer must be disabled otherwise the system will not function.</p>
 <H4>Circuit Diagram</H4>
 <p>The circuit diagram and any future schematics developed will be located on the Google Drive. Please refer to the Google Drive for all up-to-date documentation</p>
 <H4>Measurement Forms</H4>
