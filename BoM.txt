@@ -1,0 +1,14 @@
+Yaw-Mech Degration Test Bill of Materials
+
+1x MSP430FR2310 16 Pin TSSOP Package
+1x AdaFruit 16 Pin TSSOP Surfboard Breakout PCB
+2x 8 Pin Header pins
+3x Fair Child 14N05L Mosfet
+3x FlyBack DIODEs -> Need exact model
+2x JR Male Connectors
+2x JR Female Connectors
+5x JR Male Crimps
+5x JR Female Crimps
+1x HiLetgo Micro-USB Power Supply
+1x Rocker Switch -> Need exact model
+1x SBE Yaw-Mech Arm

@@ -3,18 +3,26 @@
     See repository for circuit diagram
     This source code is used to control the MSP430FR2310 which runs the controls system for the tester
 
-                    |----------------|
-                    |                |  ---> +5V  --------->    |-------|
-                    |2310 Controller |  ---> GND  --------->    | Servo |
-    USB Power --->  |                |  ---> PWM P1.6   --->    |-------|
-                    |                |
-                    |                |
-                    |                |  ---> PWM P1.7   --->        |-------|                   |---------------|
-                    |                |  ---> NC     ------->        | ESC   |    <--- +24V <--- | Benchtop PSU  |
-                    |----------------|  ---> GND    ------->        |-------|    <--- GND  <--- |---------------|
-
+                            |----------------|
+                            |                |  ---> +5V  --------->    |-------|
+                            |2310 Controller |  ---> GND  --------->    | Servo |
+            USB Power --->  |                |  ---> PWM P1.6   --->    |-------|
+           /                |                |
+        |/_                 |                |
+    +3.3v ---> Switch  ---> |P2.7            |  ---> PWM P1.7   --->        |-------|                   |---------------|
+                            |                |  ---> NC     ------->        | ESC   |    <--- +24V <--- | Benchtop PSU  |
+                            |----------------|  ---> GND    ------->        |-------|    <--- GND  <--- |---------------|
 
 */
+
+/*
+Edit History: 05/12/23 Drew Currie
+    -> Finalized Yaw-Mech servo position control
+    -> Tuned the motor RPM through adjusting the PWM value for TB1CCR1 to 2000 and TB1CCR0 to 20850
+    -> Flashed to the MSP430FR2310 and began long term testing
+*/
+
+
 #include <msp430.h>
 
 //Some defines to make the LED light control a little easier 
