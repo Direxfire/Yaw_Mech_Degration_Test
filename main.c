@@ -4,14 +4,14 @@
     This source code is used to control the MSP430FR2310 which runs the controls system for the tester
 
                     |----------------|
-                    |                |  ---> +5V    --->    |-------|
-                    |2310 Controller |  ---> GND    --->    | Servo |
-    USB Power --->  |                |  ---> PWM    --->    |-------|
+                    |                |  ---> +5V  --------->    |-------|
+                    |2310 Controller |  ---> GND  --------->    | Servo |
+    USB Power --->  |                |  ---> PWM P1.6   --->    |-------|
                     |                |
                     |                |
-                    |                |  ---> PWM    --->    |-------|                   |---------------|
-                    |                |  ---> NC     --->    | ESC   |    <--- +24V <--- | Benchtop PSU  |
-                    |----------------|  ---> GND    --->    |-------|    <--- GND  <--- |---------------|
+                    |                |  ---> PWM P1.7   --->        |-------|                   |---------------|
+                    |                |  ---> NC     ------->        | ESC   |    <--- +24V <--- | Benchtop PSU  |
+                    |----------------|  ---> GND    ------->        |-------|    <--- GND  <--- |---------------|
 
 
 */
@@ -122,7 +122,7 @@ void Run_Mode(void)
     while (Mode == 1)
     {
         //This creates the approximately .5s delay for each side of the measurement
-        for (j = 0; j < 3; j++)
+        for (j = 0; j < 7; j++)
         {
             for (i = 0; i < 20000; i++)
                 ;
@@ -139,6 +139,7 @@ void Run_Mode(void)
                 Mode = 3;
             }
         }
+        TB1CCR1 = Servo_Positions[Servo_Position_Counter];
 
     }
     
@@ -245,7 +246,7 @@ void Setup_Timers(void)
 
     TB1CTL |= TBCLR;
     TB1CTL |= TBSSEL__SMCLK;
-    TB1CTL |= MC__STOP;
+    TB1CTL |= MC__UP;
     TB1CCR0 |= 20000;       //Using 20,000 on this timer creates a 50Hz PWM signal which is the standard for fast PWM
     TB1CCR1 |= 1400;        //Set center for starting position
 
